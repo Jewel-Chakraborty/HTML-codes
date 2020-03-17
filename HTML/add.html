@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    Enter 1st No:<input type="text" id="txt1" name="num1"><br><br> Enter 2nd No:<input type="text" id="txt2" name="num2"><br><br>
+    <button onclick="add(1)">Add</button>
+    <input id="answer1"><br><br>
+    <button onclick="add(2)">Subtract</button>
+    <input id="answer2"><br><br>
+    <button onclick="add(3)">Multiply</button>
+    <input id="answer3"><br><br>
+    <button onclick="add(4)">Division</button>
+    <input id="answer4">
+    <script>
+        function add(x) {
+            var a, b, c;
+            a = parseInt(document.getElementById("txt1").value);
+            b = parseInt(document.getElementById("txt2").value);
+            if (x == 1) {
+                c = a + b;
+                document.getElementById("answer1").value = c;
+            }
+            if (x == 2) {
+                c = a - b;
+                document.getElementById("answer2").value = c;
+            }
+            if (x == 3) {
+                c = a * b;
+                document.getElementById("answer3").value = c;
+            }
+            if (x == 4) {
+                c = a / b;
+                document.getElementById("answer4").value = c;
+            }
+        }
+    </script>
+</body>
+
+</html>

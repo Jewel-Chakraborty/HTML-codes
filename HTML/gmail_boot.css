@@ -1,0 +1,23 @@
+.container {
+    border: 1px solid grey;
+    border-radius: 8px;
+    width: 750px;
+    margin: auto;
+    height: 500px;
+    margin-top: 250px;
+}
+
+#image {
+    height: 50px;
+    width: 50px;
+    margin-left: -10px;
+    margin-top: 1px;
+}
+
+#first_link {
+    margin-left: 10px;
+}
+
+#ima {
+    width: 250px;
+}

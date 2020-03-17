@@ -1,0 +1,11 @@
+#format {
+    background-image: linear-gradient(green, white);
+}
+
+#divisions a:hover {
+    color: rgb(241, 11, 11);
+}
+
+.bar {
+    background-color: rgb(255, 60, 0);
+}

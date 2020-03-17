@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Date Validation</title>
+    <!--<link href="form_boot.css" rel="stylesheet" type=text/css>-->
+</head>
+
+<body>
+    Enter Name:<input type="text" id="txt1" name="name" onfocusout="cname()"><br><br> Enter DOB:<input type="date" id="txt2" name="dob"><br><br>
+    <button onclick="cage()">Age</button>
+
+    <h1 id="text"></h1>
+    <script>
+        var a, b;
+
+        function cname() {
+            var reg = /^[A-Za-z]+[\ ]+[A-Za-z]+$/;
+            a = (document.getElementById("txt1").value);
+            if (a.match(reg))
+                return true;
+            else {
+                alert("Please Follow the Format");
+                return false;
+            }
+
+        }
+
+        function cage() {
+            /*var dateString = (document.getElementById("txt2").value);
+            var today = new Date();
+            var birthDate = new Date(dateString);
+            var age = today.getFullYear() - birthDate.getFullYear();
+            var m = today.getMonth() - birthDate.getMonth();
+            if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+                age--;*/
+            var birthDate = document.getElementById('txt2').value;
+
+            //if(birthDate==""){
+            //  alert("Choose correct birthdate.")
+            //}else{
+            //  alert(birthDate);
+            //  alert(Date());
+            var d = new Date(birthDate);
+
+            // document.getElementById("age").innerHTML = d;
+
+            //}
+
+            var mdate = birthDate.toString();
+            var yearThen = parseInt(mdate.substring(0, 4), 10);
+            var monthThen = parseInt(mdate.substring(5, 7), 10);
+            var dayThen = parseInt(mdate.substring(8, 10), 10);
+
+            var today = new Date();
+            var birthday = new Date(yearThen, monthThen - 1, dayThen);
+            //   alert(today.valueOf() + " " + birthday.valueOf());
+            var differenceInMilisecond = today.valueOf() - birthday.valueOf();
+            //here
+            if (differenceInMilisecond < 0) {
+                alert('you arent yet born mf');
+                return;
+            }
+            //upto here
+            //  alert(differenceInMilisecond);
+
+            var year_age = Math.floor(differenceInMilisecond / 31536000000);
+            var day_age = Math.floor((differenceInMilisecond % 31536000000) / 86400000);
+
+            if ((today.getMonth() == birthday.getMonth()) && (today.getDate() == birthday.getDate())) {
+                alert("Happy B'day!!!");
+            }
+
+            var month_age = Math.floor(day_age / 30);
+
+            day_age = day_age % 30;
+
+            var tMnt = (month_age + (year_age * 12));
+            var tDays = (tMnt * 30) + day_age;
+
+            if (isNaN(year_age) || isNaN(month_age) || isNaN(day_age)) {
+                document.getElementById("text").innerHTML = ("Invalid birthday - Please try again!");
+            } else {
+                document.getElementById("text").innerHTML = year_age + " years " + month_age + " months " + day_age + " days" +
+                    "<br/> or <br/> " +
+                    tMnt + " months " + day_age + " days" +
+                    "<br/> or <br/>" +
+                    tDays + " days" +
+                    "<br/> or <br/>" +
+                    tDays * 24 + " hours" +
+                    "<br/> or <br/>" +
+                    tDays * 24 * 3600 + " seconds" +
+                    "<br/> or <br/>" +
+                    tDays * 24 * 3600 * 1000 + " miliseconds";
+            }
+            document.getElementById("text").innerHTML = age;
+
+        }
+    </script>
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src=" https://code.jquery.com/jquery-3.4.1.slim.min.js " integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n " crossorigin="anonymous "></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js " integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin="anonymous "></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js " integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6 " crossorigin="anonymous "></script>
+
+</body>
+
+</html>
