@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery 1st example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="newdiv">
+        My name is Jewel
+    </div>
+    
+    font-color:
+    <select name="" id="fontcolor">
+        <option value="red">red</option>
+        <option value="blue">blue</option>
+        <option value="green">green</option>
+        
+    </select>
+   
+    font-size:
+    <select name="" id="fontsize">
+        <option value="50px">50</option>
+        <option value="60px">60</option>
+        <option value="70px">70</option>
+
+    
+    border-style:
+    <select name="" id="borderstyle">
+        <option value="solid">solid</option>
+        <option value="dashed">dashed</option>
+    </select>
+    
+
+    <button id="apply">Apply changes</button>
+</body>
+<script>
+    $('#apply').click(function()
+        $('#newdiv').css({
+            "color":$('#fontcolor').val(),
+            "font-size":$('#fontsize').val(),
+            "border-style":$('#borderstyle').val()
+            
+        });
+    });
+</script>
+
+</html>
